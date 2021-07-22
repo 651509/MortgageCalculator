@@ -29,17 +29,36 @@ public class MortgageCalculator {
 	// write your code here
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("Principal: ");
-        int principal = sc.nextInt();
+        int principal,periodInYears;
+        double rateOfInterest;
 
-        System.out.print("Annual Interest Rate: ");
-        double rateOfInterest= sc.nextDouble();
+        while(true){
+            System.out.print("Principal: ");
+            principal=sc.nextInt();
+            if(principal>=1000 && principal<=1_00_000)
+                break;
+            System.out.println("Enter a number between 1000 and 100000");
+        }
 
-        System.out.print("Period: ");
-        int periodInYears = sc.nextInt();
+        while(true){
+            System.out.print("Annual Rate of Interest: ");
+            rateOfInterest=sc.nextDouble();
+            if(rateOfInterest>0 && rateOfInterest<=30)
+                break;
+            System.out.println("Enter a value between 0 and 30");
+        }
+
+        while(true){
+            System.out.print("Periods: ");
+            periodInYears=sc.nextInt();
+            if(periodInYears>0 && periodInYears<=30)
+                break;
+            System.out.println("Enter a value between 0 and 30");
+        }
+
 
         MortgageCalculator mc = new MortgageCalculator();
-       mc.mortgage(principal, rateOfInterest, periodInYears );
+        mc.mortgage(principal, rateOfInterest, periodInYears );
 
 
     }
